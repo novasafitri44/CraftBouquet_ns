@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CraftBouquet_ns</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #fffaf3;
+      color: #333;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      justify-content: center;
+      background: #f4eade;
+    }
+
+    header img {
+      height: 60px;
+      margin-right: 20px;
+    }
+
+    header h1 {
+      font-size: 1.8em;
+    }
+
+    .container {
+      padding: 30px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .product {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+    }
+
+    .product img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .product h3 {
+      padding: 15px 10px;
+      font-size: 1.1em;
+    }
+
+    .cta {
+      margin: 30px 0;
+      text-align: center;
+    }
+
+    .cta p {
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .music-control {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #f4eade;
+      padding: 10px 15px;
+      border-radius: 30px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: #f4eade;
+      margin-top: 50px;
+    }
+
+    .footer a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .flower {
+      position: fixed;
+      width: 30px;
+      height: 30px;
+      background-image: url('https://i.ibb.co/y6PTxDf/flower.png');
+      background-size: cover;
+      top: -50px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px) rotate(0);
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="https://i.ibb.co/WN8vWBQ/logo.png" alt="Logo CraftBouquet_ns">
+    <h1>CraftBouquet_ns</h1>
+  </header>
+
+  <div class="container">
+    <div class="product">
+      <img src="https://i.ibb.co/sdqYQY9/box.jpg" alt="Box Seserahan">
+      <h3>Box Seserahan</h3>
+    </div>
+    <div class="product">
+      <img src="https://i.ibb.co/0RQQjWN/papan.jpg" alt="Sewa Papan Akrilik">
+      <h3>Sewa Papan Akrilik</h3>
+    </div>
+    <div class="product">
+      <img src="https://i.ibb.co/PvFmVTm/buket-bunga.jpg" alt="Buket Bunga">
+      <h3>Buket Bunga</h3>
+    </div>
+    <div class="product">
+      <img src="https://i.ibb.co/93hTp8nC/buket-uang.jpg" alt="Buket Uang">
+      <h3>Buket Uang</h3>
+    </div>
+    <div class="product">
+      <img src="https://i.ibb.co/jkqWXD9G/buket-boneka.jpg" alt="Buket Boneka">
+      <h3>Buket Boneka</h3>
+    </div>
+    <div class="product">
+      <img src="https://i.ibb.co/v4kzhNWW/buket-snack.jpg" alt="Buket Snack">
+      <h3>Buket Snack</h3>
+    </div>
+    <div class="product">
+      <img src="https://i.ibb.co/LdKcpFhP/frame-foto.jpg" alt="Frame Foto">
+      <h3>Frame Foto</h3>
+    </div>
+  </div>
+
+  <div class="cta">
+    <p>Butuh Custom/Bebas Request?</p>
+    <a href="https://wa.me/6283847086488" target="_blank">Chat Kami di WhatsApp</a>
+  </div>
+
+  <div class="footer">
+    <p>Hubungi kami:</p>
+    <a href="https://wa.me/6283847086488" target="_blank">WhatsApp</a> |
+    <a href="https://instagram.com/novasafitri44" target="_blank">Instagram</a>
+  </div>
+
+  <div class="music-control">
+    <audio id="bgMusic" src="ssstik.io_1748096071015.mp3" loop></audio>
+    <button onclick="toggleMusic()">Play / Pause Musik</button>
+  </div>
+
+  <script>
+    function toggleMusic() {
+      const music = document.getElementById('bgMusic');
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+
+    // Bunga jatuh otomatis
+    for (let i = 0; i < 25; i++) {
+      let flower = document.createElement('div');
+      flower.classList.add('flower');
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      document.body.appendChild(flower);
+    }
+  </script>
+</body>
+
+</html>
